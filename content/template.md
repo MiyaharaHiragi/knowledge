@@ -6,7 +6,14 @@ tags:
   - Quartz
   - Obsidian
 ---
-
+# Update
+````bash
+npx quartz build --serve
+npx quartz sync
+git add .
+git commit -m"update"
+git push
+````
 # 這是一級標題 (H1)
 
 歡迎來到您的 Quartz 網站！這是一篇用 Markdown 語法寫成的範例筆記，用來展示各種常見的格式。
