@@ -208,7 +208,7 @@ export function renderPage(
     pageBody: Content,
     afterBody,
     left,
-    right,
+    // right,
     footer: Footer,
   } = components
   const Header = HeaderConstructor()
@@ -222,30 +222,30 @@ export function renderPage(
     </div>
   )
 
-  const RightComponent = (
-    <div class="right sidebar">
-      {right.map((BodyComponent) => (
-        <BodyComponent {...componentData} />
-      ))}
-    </div>
-  )
+  // const RightComponent = (
+  //   <div class="right sidebar">
+  //     {right.map((BodyComponent) => (
+  //       <BodyComponent {...componentData} />
+  //     ))}
+  //   </div>
+  // )
 
   const lang = componentData.fileData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
   const direction = i18n(cfg.locale).direction ?? "ltr"
   const doc = (
     <html lang={lang} dir={direction}>
       <Head {...componentData} />
+      <Header {...componentData}>
+        {header.map((HeaderComponent) => (
+          <HeaderComponent {...componentData} />
+        ))}
+      </Header>
       <body data-slug={slug}>
         <div id="quartz-root" class="page">
           <Body {...componentData}>
             {LeftComponent}
             <div class="center">
               <div class="page-header">
-                <Header {...componentData}>
-                  {header.map((HeaderComponent) => (
-                    <HeaderComponent {...componentData} />
-                  ))}
-                </Header>
                 <div class="popover-hint">
                   {beforeBody.map((BodyComponent) => (
                     <BodyComponent {...componentData} />
@@ -260,7 +260,7 @@ export function renderPage(
                 ))}
               </div>
             </div>
-            {RightComponent}
+            {/* {RightComponent} */}
             <Footer {...componentData} />
           </Body>
         </div>
